@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>予約編集</title>
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+  <main class="container">
+    <h1>予約編集</h1>
+    <form th:action="@{/reserve/update}" th:object="${reservation}" method="post">
+      <input type="hidden" th:field="*{id}" />
+      <label>氏名（漢字）<input th:field="*{nameKanji}" /></label><br/>
+      <label>氏名（かな）<input th:field="*{nameKana}" /></label><br/>
+      <label>電話番号<input th:field="*{phoneNumber}" /></label><br/>
+      <label>メール<input th:field="*{email}" /></label><br/>
+      <label>日付<input type="date" th:field="*{date}" /></label><br/>
+      <label>時間<input type="time" th:field="*{time}" /></label><br/>
+      <label>人数<input type="number" th:field="*{numberOfPeople}" min="1" /></label><br/>
+      <button type="submit">更新</button>
+    </form>
+    <p><a th:href="@{/reserve/list}">一覧に戻る</a></p>
+  </main>
+</body>
+</html>

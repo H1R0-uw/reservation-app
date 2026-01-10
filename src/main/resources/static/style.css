@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+/* base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fffef9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* infomation-bar 
+.info-bar {
+	background:#fffae6; 
+    color:#665200;
+    padding:8px 16px; 
+    text-align:center; 
+    font-weight:600;
+    }
+
+
+/* header / navi */
+.site-header {
+	background-color: #1a1a1a;
+	color: #fff;
+	padding: 15px 20px;
+	position: relative;
+    }
+    
+.header-inner {
+	 display:flex;
+	 justify-content:space-between; 
+	 align-items:center; 
+	 max-width:1200px; 
+	 margin: 0 auto;
+	 }
+	 
+.logo { 
+	margin:0; 
+	font-size:1.25rem; 
+	font-weight: bold;
+	}
+	
+.main-nav a { 
+	margin-left:20px; 
+	color:#fff; 
+	font-weight: 500;
+	}
+	
+/* 予約ボタン　*/
+.btn.reserve-btn { 
+	background:#f0a500; 
+	color:white; 
+	padding:6px 10px; 
+	border-radius:6px; 
+	font-weight: bold;
+	}
+	
+/* メニューセクション */
+.menu {
+    position: relative;
+    background: blanchedalmond center/cover no-repeat;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.menu-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明のオーバーレイ */
+    padding: 40px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.menu-overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.menu-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.menu-overlay img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* メニューボタン */
+.btn.menu-btn {
+    display: inline-block;
+    background-color: #f4f4f4;
+    color: #1a1a1a;
+    padding: 12px 25px;
+    border-radius: 40px;
+    font-weight: bold;
+}
+
+	
+/* 固定予約ボタン　*/
+.fixed-reserve-btn {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #f0a500;
+	color: #1a1a1a;
+	padding: 12px 18px;
+	border-radius: 50px;
+	font-weight: bold;
+	z-index: 100;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	}
+	
+/* フッター　*/
+.site-footer {
+	background-color: #1a1a1a;
+	color: #fff;
+	text-align: center;
+	padding: 15px 0;
+	margin-top: 40px;	
+}
+	
+	
+
+	

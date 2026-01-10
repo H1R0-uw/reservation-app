@@ -1,3 +1,4 @@
+
 # Compiled class file
 *.class
 
@@ -29,3 +30,62 @@ replay_pid*
 .env
 application-prod.yml
 application.yml
+
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/
+
+# Gradle
+.gradle/
+build/
+
+# IntelliJ / Eclipse
+*.iml
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+
+# (Optional) local env files
+.env

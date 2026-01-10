@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>dining〇〇-completed</title>
+</head>
+<body>
+	<h1>ご予約ありがとうございました</h1>
+ <p th:text="${reservation.nameKanji} + ' 様'"></p>
+  <p>以下の内容で予約を受け付けました。</p>
+  <ul>
+    <li>日付: <span th:text="${reservation.date}"></span></li>
+    <li>時間: <span th:text="${reservation.time}"></span></li>
+    <li>人数: <span th:text="${reservation.numberOfPeople}"></span></li>
+    <li>電話: <span th:text="${reservation.phoneNumber}"></span></li>
+    <li>メール: <span th:text="${reservation.email}"></span></li>
+  </ul>
+  <a th:href="@{/}">トップに戻る</a>
+</body>
+</html>

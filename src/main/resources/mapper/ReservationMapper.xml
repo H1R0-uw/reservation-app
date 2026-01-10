@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.levtech.rookie.reserve.mapper.ReservationMapper">
+
+  <resultMap id="ReservationMap" type="jp.levtech.rookie.reserve.model.Reservation">
+    <id property="id" column="id"/>
+    <result property="name" column="name"/>
+    <result property="email" column="email"/>
+    <result property="phone" column="phone"/>
+    <result property="date" column="date"/>
+    <result property="time" column="time"/>
+    <result property="numberOfPeople" column="number_of_people"/>
+    <result property="message" column="message"/>
+    <result property="createdAt" column="created_at"/>
+  </resultMap>
+
+ <select id="findAll" resultMap="ReservationMap">
+  SELECT
+  id,
+  name_kanji      AS nameKanji,
+  name_kana       AS nameKana,
+  phone_number    AS phoneNumber,
+  email           AS email,
+  date,
+  time,
+  number_of_people AS numberOfPeople,
+  message
+FROM reservations
+ORDER BY date, time;
+</select>
+
+  <select id="findById" resultMap="ReservationMap" parameterType="long">
+    SELECT
+      id, name, email, phone, date, time, number_of_people, message, created_at
+    FROM reservations
+    WHERE id = #{id};
+  </select>
+
+ <insert id="insert" parameterType="jp.levtech.rookie.reserve.model.Reservation">
+  INSERT INTO reservations
+    (name, name_kanji, name_kana, phone, phone_number, email, date, time, number_of_people)
+  VALUES
+    (#{nameKanji}, #{nameKanji}, #{nameKana}, #{phoneNumber}, #{phoneNumber}, #{email}, #{date}, #{time}, #{numberOfPeople});
+</insert>
+
+  <update id="update" parameterType="jp.levtech.rookie.reserve.model.Reservation">
+    UPDATE reservations
+    SET
+      name = #{name},
+      email = #{email},
+      phone = #{phone},
+      date = #{date},
+      time = #{time},
+      number_of_people = #{numberOfPeople},
+      message = #{message}
+    WHERE id = #{id};
+  </update>
+
+  <delete id="deleteById" parameterType="long">
+    DELETE FROM reservations WHERE id = #{id};
+  </delete>
+
+  <select id="findDailyTotalPeople" resultType="map">
+    SELECT
+      date,
+      COALESCE(SUM(number_of_people), 0) AS total_people
+    FROM reservations
+    GROUP BY date
+    ORDER BY date;
+  </select>
+
+</mapper>

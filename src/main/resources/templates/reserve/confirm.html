@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>dining〇〇-confirm</title>
+</head>
+<body>
+	 <h1>予約内容の確認</h1>
+  <form th:action="@{/reserve/completed}" method="post" th:object="${reservation}">
+	 
+    <p>日付: <span th:text="*{date}"></span></p>
+    <p>時間: <span th:text="*{time}"></span></p>
+    <p>人数: <span th:text="*{numberOfPeople}"></span></p>
+    <p>お名前（漢字）: <span th:text="*{nameKanji}"></span></p>
+    <p>お名前（カナ）: <span th:text="*{nameKana}"></span></p>
+    <p>電話番号: <span th:text="*{phoneNumber}"></span></p>
+    <p>メール: <span th:text="*{email}"></span></p>
+
+    <!-- 実際に保存するため、全フィールドを hidden で送る -->
+    <input type="hidden" th:field="*{date}" />
+    <input type="hidden" th:field="*{time}" />
+    <input type="hidden" th:field="*{numberOfPeople}" />
+    <input type="hidden" th:field="*{nameKanji}" />
+    <input type="hidden" th:field="*{nameKana}" />
+    <input type="hidden" th:field="*{phoneNumber}" />
+    <input type="hidden" th:field="*{email}" />
+     <button type="submit" class="btn reserve-btn">確定する</button>
+   </form>    
+	<a th:href="@{/reserve/form}" class="btn reserve-btn">予約画面に戻る</a>
+</body>
+</html>

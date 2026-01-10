@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>dining〇〇-トップ</title>
+<link rel="stylesheet" th:href="@{/top.css}">
+</head>
+<body>
+<header class="site-header">
+		  <div class="header-inner">
+    <div class="logo">dining〇〇</div>
+    <nav class="main-nav">
+      <a th:href="@{/}">トップ</a>
+      <a th:href="@{/menu}">メニュー</a>
+      <a th:href="@{/info}">インフォメーション</a>
+          </nav>
+      <a th:href="@{/reserve}" class="btn reserve-btn">ご予約はこちら</a>
+    </div>
+  </header> 
+  
+ <main>
+	 
+    <section class="hero">
+    <div class="hero-overlay">
+      <img src="/images/feature1.jpg" alt="お店のイメージ" class="fade-image">
+      <div class="hero-text">
+        <h1>季節の味を大切に。</h1>
+        <p>心温まるひとときを dining〇〇 で。</p>
+      </div>
+    </div>
+  </section>
+  <section class="menu">
+    <div class="menu-overlay">
+      <h2>メニュー</h2>
+      <p>季節の素材を生かした料理でおもてなしいたします</p>
+      <img src="/images/feature2.jpg" alt="料理写真1">
+      <img src="/images/feature3.jpg" alt="料理写真2">
+      <a th:href="@{/menu}" class="btn menu-btn">もっと見る</a>
+    </div>
+  </section>
+ </main>
+
+<footer class="site-footer">
+    <p>© 2025 dining○○</p>
+  </footer>
+
+  <a th:href="@{/reserve}" class="fixed-reserve-btn">予約</a>
+  <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

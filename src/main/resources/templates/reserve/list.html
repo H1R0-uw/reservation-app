@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>予約一覧 - 管理</title>
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">dining〇〇 - 管理</div>
+      <nav class="main-nav">
+        <a th:href="@{/}">トップ</a>
+        <a th:href="@{/reserve/list}">予約一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>予約一覧</h1>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>氏名</th><th>日時</th><th>人数</th><th>連絡先</th><th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="r : ${reservations}">
+          <td th:text="${r.id}">1</td>
+          <td>
+            <span th:text="${r.nameKanji}">山田太郎</span>
+            <br/><small th:text="${r.nameKana}">ヤマダ タロウ</small>
+          </td>
+          <td>
+            <!-- 修正箇所 -->
+            <span th:text="${#temporals.format(r.date,'yyyy-MM-dd')}"></span>
+            <br/><span th:text="${#temporals.format(r.time,'HH:mm')}"></span>
+          </td>
+          <td th:text="${r.numberOfPeople}">2</td>
+          <td>
+            <span th:text="${r.phoneNumber}"></span><br/>
+            <span th:text="${r.email}"></span>
+          </td>
+          <td>
+            <a th:href="@{|/reserve/edit/${r.id}|}">編集</a>
+            <form th:action="@{/reserve/delete}" method="post" style="display:inline">
+              <input type="hidden" name="id" th:value="${r.id}" />
+              <button type="submit" onclick="return confirm('削除しますか？')">削除</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

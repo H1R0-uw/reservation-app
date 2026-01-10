@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>dining〇〇-reservation</title>
+</head>
+<body>
+	<h1>予約フォーム</h1>
+  <form th:action="@{/reserve/confirm}" method="post" th:object="${reservation}">
+    <label>日付: <input type="date" th:field="*{date}" required/></label><br/>
+    <label>時間: <input type="time" th:field="*{time}" required/></label><br/>
+    <label>人数: <input type="number" min="1" max="10" th:field="*{numberOfPeople}" required/></label><br/>
+    <label>お名前（漢字）: <input type="text" th:field="*{nameKanji}" required/></label><br/>
+    <label>お名前（カナ）: <input type="text" th:field="*{nameKana}" required/></label><br/>
+    <label>電話番号: <input type="tel" th:field="*{phoneNumber}" required pattern="[0-9\- ]+"/></label><br/>
+    <label>メールアドレス: <input type="email" th:field="*{email}" required/></label><br/>
+    <label>メールアドレス（確認）: <input type="email" name="emailConfirm" required/></label><br/>
+	<button type="submit" class="btn reserve-btn">予約する</button>
+  </form>
+</body>
+</html>

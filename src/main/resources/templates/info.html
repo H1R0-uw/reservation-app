@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>dining〇〇 - インフォメーション</title>
+<link rel="stylesheet" th:href="@{/info.css}">
+</head>
+<body>
+<header class="site-header">
+		  <div class="header-inner">
+    <div class="logo">dining〇〇</div>
+    <nav class="main-nav">
+      <a th:href="@{/}">トップ</a>
+      <a th:href="@{/menu}">メニュー</a>
+      <a th:href="@{/info}">インフォメーション</a>
+          </nav>
+      <a th:href="@{/reserve}" class="btn reserve-btn">ご予約はこちら</a>
+    </div>
+  </header> 
+
+  <main class="container info-container">
+
+    <section class="calendar-section">
+      <h2>予約状況カレンダー</h2>
+      <div id="calendar"></div>
+      <div>
+  <a th:href="@{/info(year=${prevMonth.year}, month=${prevMonth.monthValue})}">
+    ← 前月
+  </a>
+
+  <strong th:text="${currentMonth}"></strong>
+
+  <a th:href="@{/info(year=${nextMonth.year}, month=${nextMonth.monthValue})}">
+    次月 →
+  </a>
+</div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>日</th><th>月</th><th>火</th><th>水</th>
+      <th>木</th><th>金</th><th>土</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr th:each="week : ${weeks}">
+      <td th:each="day : ${week}"
+    th:classappend="${day != null and calendarStatus[day] == '×'} ? 'disabled' : ''">
+
+  <!-- day が存在する場合のみ表示 -->
+  <span th:if="${day != null}">
+
+    <!-- 予約可能（○ or △） -->
+    <a th:if="${calendarStatus[day.toString()] != '×'}"
+       th:href="@{/reserve/form(date=${day})}">
+
+      <div th:text="${day.dayOfMonth}"></div>
+
+     <div th:text="${calendarStatus != null and calendarStatus.containsKey(day.toString())
+    ? calendarStatus[day.toString()]
+    : '○'}"></div>
+
+    </a>
+
+    <!-- 満席（×） -->
+    <span th:if="${calendarStatus[day.toString()] == '×'}">
+      <div th:text="${day.dayOfMonth}"></div>
+      <div>×</div>
+    </span>
+
+  </span>
+</td>
+    </tr>
+  </tbody>
+</table>
+      <p class="calendar-note">⚪︎：空きあり　△：残りわずか　×：満席</p>
+    </section>
+    
+        <section class="shop-info">
+      <h2>店舗情報</h2>
+      <p>住所：東京都〇〇区××△丁目〇番地</p>
+      <p>営業時間：17:00〜23:00（L.O.22:30）</p>
+      <p>定休日：月曜日</p>
+    </section>
+  </main>
+<footer class="site-footer">
+    <p>© 2025 dining○○</p>
+  </footer>
+  <script th:src="@{/js/calendar.js}"></script>
+</body>
+</html>

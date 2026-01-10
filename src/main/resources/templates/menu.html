@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>dining〇〇 - メニュー</title>
+<link rel="stylesheet" th:href="@{/menu.css}">
+<body>
+<header class="site-header">
+		  <div class="header-inner">
+    <div class="logo">dining〇〇</div>
+    <nav class="main-nav">
+      <a th:href="@{/}">トップ</a>
+      <a th:href="@{/menu}">メニュー</a>
+      <a th:href="@{/info}">インフォメーション</a>
+          </nav>
+      <a th:href="@{/reserve}" class="btn reserve-btn">ご予約はこちら</a>
+    </div>
+  </header> 
+
+
+<main class="menu-page">
+  <h1>メニュー</h1>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <img src="/images/menu1.jpg" alt="料理1">
+      <h2>季節の前菜盛り合わせ</h2>
+      <p>旬の素材を使用した彩り豊かな前菜。</p>
+      <span class="price">1,200円</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="/images/menu2.jpg" alt="料理2">
+      <h2>特選ステーキ</h2>
+      <p>香ばしく焼き上げたジューシーなステーキ。</p>
+      <span class="price">2,800円</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="/images/menu3.jpg" alt="料理3">
+      <h2>季節のデザート</h2>
+      <p>旬の果物を使った甘さ控えめのデザート。</p>
+      <span class="price">900円</span>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+    <p>© 2025 dining○○</p>
+  </footer>
+</body>
+</html>
